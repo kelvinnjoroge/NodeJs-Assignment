@@ -1,0 +1,24 @@
+{
+  "name": "webdev-project",
+  "version": "1.0.0",
+  "description": "Web Development project for Ike Mawira, Kevin Njoroge, Brian Gaturu",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MawiraIke/NodeJs-Assignment.git"
+  },
+  "author": "Ike Mawira, Kevin Njoroge, Brian Gaturu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MawiraIke/NodeJs-Assignment/issues"
+  },
+  "homepage": "https://github.com/MawiraIke/NodeJs-Assignment#readme",
+  "dependencies": {
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "nodemon": "^1.18.9"
+  }
+}
