@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/public/icon1.png">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/main.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+    <script src="main.js"></script>
+</head>
+
+<body>
+    <div class="col-md-auto mt-4">
+        <a href="/">Home</a>
+        <a href="/info">Info</a>
+
+        <div class="info mt-4">
+            <table class="table table-bordered">
+                <col>
+                <colgroup></colgroup>
+                <colgroup></colgroup>
+                <colgroup></colgroup>
+                <colgroup></colgroup>
+                <colgroup></colgroup>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">From</th>
+                    <th scope="col">Departure Time</th>
+                    <th scope="col">To</th>
+                    <th scope="col">Arrival Time</th>
+                    <th scope="col" colspan="3">Menus</th>
+                </tr>
+                <tr>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th>First Class</th>
+                    <th>Business Class</th>
+                    <th>Economy Class</th>
+                </tr>
+                <colgroup span="3"></colgroup>
+                <!-- <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">From</th>
+                        <th scope="col">Departure Time</th>
+                        <th scope="col">To</th>
+                        <th scope="col">Arrival Time</th>
+                        <th scope="col" colspan="3">Menus</th>
+                    </tr>
+                </thead> -->
+                <tbody>
+                    <% for(var i = 0; i < data.length; i++){ %>
+                    <tr>
+                        <th scope="row">
+                            <%= (i+1) %>
+                        </th>
+                        <td>
+                            <%= data[i]["From"] %>
+                        </td>
+                        <td>
+                            <%= data[i]["Departure Time"] %>
+                        </td>
+                        <td>
+                            <%= data[i]["To"] %>
+                        </td>
+                        <td>
+                            <%= data[i]["Arrival Time"] %>
+                        </td>
+                        <td>
+                            <ul>
+                                <li>
+                                    Main Dish:
+                                    <%= data[i]["Menu"]["First Class"]["Main Dish"] %>
+                                </li>
+                                <li>
+                                    Stew:
+                                    <%= data[i]["Menu"]["First Class"]["Stew"] %>
+                                </li>
+                                <li>
+                                    Fruits:
+                                    <%= data[i]["Menu"]["First Class"]["Fruits"] %>
+                                </li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li>
+                                    Main Dish:
+                                    <%= data[i]["Menu"]["Second Class"]["Main Dish"] %>
+                                </li>
+                                <li>
+                                    Stew:
+                                    <%= data[i]["Menu"]["Second Class"]["Stew"] %>
+                                </li>
+                                <li>
+                                    Fruits:
+                                    <%= data[i]["Menu"]["Second Class"]["Fruits"] %>
+                                </li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li>
+                                    Main Dish:
+                                    <%= data[i]["Menu"]["Third Class Class"]["Main Dish"] %>
+                                </li>
+                                <li>
+                                    Stew:
+                                    <%= data[i]["Menu"]["Third Class Class"]["Stew"] %>
+                                </li>
+                                <li>
+                                    Fruits:
+                                    <%= data[i]["Menu"]["Third Class Class"]["Fruits"] %>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <% } %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
