@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Info</title>
+    <title>Fare</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="/public/icon1.png">
     <link rel="stylesheet" type="text/css" media="screen" href="css/main.css" />
@@ -26,14 +26,14 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item ">
+                <li class="nav-item">
                     <a class="nav-link" href="/">Home </a>
                 </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="/info">Info <span class="sr-only">(current)</span></a>
-                </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/fare">Compare fares</a>
+                    <a class="nav-link" href="/info">Info</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/fare">Compare fares <span class="sr-only">(current)</span> </a>
                 </li>
 
             </ul>
@@ -42,20 +42,62 @@
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
             </form>
         </div>
-
     </nav>
 
     <% if(count != null){ %>
-        <div class="alert alert-success">
-            <div class="container">
-                <p>Found
-                    <%= count %> flights</p>
-            </div>
+    <div class="alert alert-success">
+        <div class="container">
+            <p>Found
+                <%= count %> flights</p>
         </div>
-    
-        <% } %>
+    </div>
 
-    <div class="info mt-4">
+    <% } %>
+
+    <% if(error != null){ %>
+    <div class="alert alert-danger">
+        <div class="container">
+            <strong>Error!</strong>
+            <%= error %>
+        </div>
+    </div>
+
+    <% } %>
+
+    <div class="d-flex flex-row justify-content-center align-items-center flex-wrap">
+        <div class="col-md-10 mt-4" id="form-link">
+            <form method="POST" action="/compare" class="form-inline">
+                <div class="form-row align-items-center justify-content-center">
+
+                    <label class="sr-only" for="from">From</label>
+                    <div class="input-group mb-2 mr-sm-2 p-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">From</div>
+                        </div>
+                        <input type="text" class="form-control" id="from" placeholder="Anywhere" name="from">
+                    </div>
+
+                    <label class="sr-only" for="destination">Destination</label>
+                    <div class="input-group mb-2 mr-sm-2 p-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">To</div>
+                        </div>
+                        <input type="text" class="form-control" id="destination" placeholder="Anywhere" name="to">
+                    </div>
+
+                    
+                    
+                    <div class="p-2 ml-auto mb-2">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Filter</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+
+    <div class="d-flex justify-content-center  mt-4">
         <table class="table table-bordered">
             <col>
             <colgroup></colgroup>
@@ -69,7 +111,7 @@
                 <th scope="col">Departure Time</th>
                 <th scope="col">To</th>
                 <th scope="col">Arrival Time</th>
-                <th scope="col" colspan="3">Menus</th>
+                <th scope="col" colspan="3">Fare</th>
             </tr>
             <tr>
                 <th></th>
@@ -82,16 +124,6 @@
                 <th>Economy Class</th>
             </tr>
             <colgroup span="3"></colgroup>
-            <!-- <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">From</th>
-                        <th scope="col">Departure Time</th>
-                        <th scope="col">To</th>
-                        <th scope="col">Arrival Time</th>
-                        <th scope="col" colspan="3">Menus</th>
-                    </tr>
-                </thead> -->
             <tbody>
                 <% for(var i = 0; i < data.length; i++){ %>
                 <tr>
@@ -111,58 +143,18 @@
                         <%= data[i]["Arrival Time"] %>
                     </td>
                     <td>
-                        <ul>
-                            <li>
-                                Main Dish:
-                                <%= data[i]["Menu"]["First Class"]["Main Dish"] %>
-                            </li>
-                            <li>
-                                Stew:
-                                <%= data[i]["Menu"]["First Class"]["Stew"] %>
-                            </li>
-                            <li>
-                                Fruits:
-                                <%= data[i]["Menu"]["First Class"]["Fruits"] %>
-                            </li>
-                        </ul>
+                        <%= data[i]["Fare"]["First Class"] %>
                     </td>
                     <td>
-                        <ul>
-                            <li>
-                                Main Dish:
-                                <%= data[i]["Menu"]["Second Class"]["Main Dish"] %>
-                            </li>
-                            <li>
-                                Stew:
-                                <%= data[i]["Menu"]["Second Class"]["Stew"] %>
-                            </li>
-                            <li>
-                                Fruits:
-                                <%= data[i]["Menu"]["Second Class"]["Fruits"] %>
-                            </li>
-                        </ul>
+                        <%= data[i]["Fare"]["Business Class"] %>
                     </td>
                     <td>
-                        <ul>
-                            <li>
-                                Main Dish:
-                                <%= data[i]["Menu"]["Third Class Class"]["Main Dish"] %>
-                            </li>
-                            <li>
-                                Stew:
-                                <%= data[i]["Menu"]["Third Class Class"]["Stew"] %>
-                            </li>
-                            <li>
-                                Fruits:
-                                <%= data[i]["Menu"]["Third Class Class"]["Fruits"] %>
-                            </li>
-                        </ul>
+                        <%= data[i]["Fare"]["Economy Class"] %>
                     </td>
                 </tr>
                 <% } %>
             </tbody>
         </table>
-    </div>
     </div>
 
 
